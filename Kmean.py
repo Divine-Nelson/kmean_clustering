@@ -39,12 +39,12 @@ plt.show()
 
 
 
-"""best_k = 2
+best_k = 2
 
 kmeans = KMeans(n_clusters=best_k, random_state=42)
 df["cluster"] = kmeans.fit_predict(X_scaled)
-"""
-"""plt.figure(figsize=(10, 7))
+
+plt.figure(figsize=(10, 7))
 plt.scatter(
     df["longitude"], df["latitude"], df["median_income"],
     c=df["cluster"], cmap="tab10", s=50, alpha=0.6
@@ -52,17 +52,4 @@ plt.scatter(
 plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 plt.title(f"K-Means Clustering (k={best_k}) on Housing Data")
-plt.show()"""
-
-X_2d = X_scaled[:, :2]
-
-
-# Train K-Means
-kmeans = KMeans(n_clusters=3, random_state=42)
-kmeans.fit(X_2d)
-
-# Plot decision boundaries
-plt.figure(figsize=(8, 6))
-plot_decision_boundaries(kmeans, X_2d, resolution=500)
-plt.title("K-Means Decision Boundaries (Longitude vs Latitude)")
 plt.show()
